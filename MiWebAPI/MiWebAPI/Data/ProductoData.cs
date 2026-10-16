@@ -70,7 +70,7 @@ namespace MiWebAPI.Data
                 cmd.Parameters.AddWithValue("@precio", objeto.Precio);
                 cmd.Parameters.AddWithValue("@cantidad", objeto.Cantidad);
                 cmd.Parameters.AddWithValue("@total", objeto.Precio * objeto.Cantidad);
-                cmd.Parameters.AddWithValue("@descripcion", objeto.descripcion ?? "");
+                cmd.Parameters.AddWithValue("@descripcion", objeto.Descripcion ?? "");
                 cmd.CommandType = CommandType.StoredProcedure;
                 try
                 {
@@ -96,7 +96,7 @@ namespace MiWebAPI.Data
                 cmd.Parameters.AddWithValue("@NombreProducto", objeto.NombreProducto ?? "");
                 cmd.Parameters.AddWithValue("@precio", objeto.Precio);
                 cmd.Parameters.AddWithValue("@cantidad", objeto.Cantidad);
-                cmd.Parameters.AddWithValue("@descripcion", objeto.descripcion ?? "");
+                cmd.Parameters.AddWithValue("@descripcion", objeto.Descripcion ?? "");
                 cmd.CommandType = CommandType.StoredProcedure;
                 try
                 {
@@ -143,7 +143,7 @@ namespace MiWebAPI.Data
                 Precio = reader["Precio"] is DBNull ? 0 : Convert.ToDecimal(reader["Precio"]),
                 Cantidad = reader["Cantidad"] is DBNull ? 0 : Convert.ToInt32(reader["Cantidad"]),
                 Total = reader["Total"] is DBNull ? 0 : Convert.ToDecimal(reader["Total"]),
-                descripcion = reader["Descripcion"].ToString()
+                Descripcion = reader["Descripcion"].ToString()
             };
         }
 

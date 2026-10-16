@@ -10,10 +10,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<HerramientaData>();
 
 builder.Services.AddSingleton<EmpleadoData>();
-builder.Services.AddSingleton<ProductoDetalle>();
-builder.Services.AddSingleton<ProductoData>();
+builder.Services.AddSingleton<ProveedorData>();
+
 
 builder.Services.AddCors(options =>
 {
@@ -30,6 +31,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+
 }
 
 app.UseCors("NuevaPolitica");
